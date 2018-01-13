@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+{% set navigation_bar = [
+  ('/', 'home', 'Home'),
+  ('/test_suite/', 'test_suite', 'New Test Suite'),
+  ('/history/', 'history', 'History')
+] -%}
+
+{% set active_page = active_page|default('home') -%}
+
+<html lang="en">
+<head>
+ <title>Peak</title>
+ <!-- Latest compiled and minified CSS -->
+ <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/simplex/bootstrap.min.css"-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+ {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="container-fluid">
+  <nav class="navbar navbar-expand-md">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+              </button>
+        <a class="navbar-brand" href="#">
+          <object type="image/svg+xml" data="{{ url_for('static', filename='peak-text.svg')}}" class="logo"></object>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          {% for href, id, caption in navigation_bar -%}
+          <li{% if id == active_page %} class="nav-item active"{% else %} class="nav-item"{% endif %}><a class="nav-link" href="{{ href|e }}">{{ caption|e }}</a></li>
+          {% endfor -%}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="content">
+    <div class="container">
+  {%- with messages = get_flashed_messages(with_categories=True) %}
+  {%- if messages %}
+    <div class="row">
+      <div class="col-md-12">
+        <!-- add code here to flash messages -->
+      </div>
+    </div>
+  {%- endif %}
+  {%- endwith %}
+
+  {% block content %}{% endblock %}
+  </div>
+  </div>
+  <div id="footer">
+    {% block footer %}
+    <a href="http://peak-oss.io/">Peak</a>.
+    {% endblock %}
+  </div>
+  </div>
+</body>

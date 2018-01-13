@@ -1,0 +1,86 @@
+{%- extends "base.html" %}
+
+{% block head %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+        //load the virtualization API
+        google.charts.load('current',{'packages':['corechart']});
+
+        //set a callback to run when the API is loaded
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+          var options = {
+                  width: 960,
+                  height: 450,
+                  curveType: 'function',
+                  vAxis: { title: "Requests" },
+                  hAxis: { title: "Seconds" },
+                  animation: {
+                    duration: 1000,
+                    easing: 'out',
+                  }
+                };
+          var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
+        function updateChart() {
+            $.ajax({
+                url: "/suite_time_data/{{ suite_uuid }}" ,
+                dataType: "json"
+            }).done(function(jsonData)  {
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'Seconds');
+                data.addColumn('number', 'Requests Ok');
+                data.addColumn('number', 'Requests Error');
+                for (var itr in jsonData) {
+                    duration = jsonData[itr][0];
+                    ok = jsonData[itr][1];
+                    error = jsonData[itr][2];
+                    data.addRow([
+                        duration,
+                        ok,
+                        error
+                    ]);
+                }
+                chart.draw(data, options);
+            }).fail(function() {
+                google.visualization.errors.addError(document.getElementById('line_chart_div'),
+                    "Failed to add data to the chart");
+            });
+         }
+         var x = 0;
+         var intervalID = setInterval(function() {
+             updateChart()
+
+             if (++x === 2) {
+               window.clearInterval(intervalID);
+             }
+        }, 3000);
+
+        updateChart();
+      }
+
+    </script>
+{%- endblock %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Total Requests</th>
+      <th>Ok</th>
+      <th>Error</th>
+      <th>Requests/s<th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ requests }}</td>
+      <td id="ok"></td>
+      <td id="error"></td>
+      <td id="request_rate"></td>
+    </tr>
+  </tbody>
+</table>
+<div id="line_chart_div"></div>
+
+{%- endblock %}

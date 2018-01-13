@@ -1,0 +1,31 @@
+
+{%- extends "base.html" %}
+{% set active_page = "test_suite" %}
+
+{% block content %}
+   <form method="POST" action="/test_suite/">
+        {{ form.csrf_token }}
+        <div class="form-group row">
+          <div class="col-sm-3">{{ form.description.label }}</div>
+      <div class="col-sm-9">{{ form.description(class="form-control") }}</div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3">{{ form.url.label }}</div>
+      <div class="col-sm-9">{{ form.url(placeholder="http://example.org/api", class="form-control") }}</div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-3">{{ form.nodes.label }}</div>
+      <div class="col-sm-9">{{ form.nodes(class="form-control") }}</div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3">{{ form.requests_node.label }}</div>
+      <div class="col-sm-9">{{ form.requests_node(class="form-control") }}</div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+   </form>
+   
+   {%- endblock %}
