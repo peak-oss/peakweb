@@ -8,6 +8,13 @@
 
 Create a virtualenv and install the requirements for peakweb
 
+Set the `PEAKORC` environment variable:
+
+```
+# this value should be set to the peakorc API
+$ export PEAKORC=http://peakorc-ip:8080
+```
+
 You can then use `gunicorn` to start a `peak-web` instance:
 
 ```
