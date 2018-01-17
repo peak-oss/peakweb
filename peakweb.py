@@ -6,9 +6,10 @@ from forms import TestSuiteForm
 
 import requests
 import json
+import os
 
 app = Flask(__name__)
-app.secret_key = 'some_secret'
+app.secret_key = os.environ['PEAK_SECRET']
 
 
 @app.route('/')

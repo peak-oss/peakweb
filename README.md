@@ -8,6 +8,16 @@
 
 Create a virtualenv and install the requirements for peakweb
 
+Set a secret key for the app:
+
+```
+>>> import os
+>>> os.urandom(24)
+'7`\xde+a\xbcs\xac\xbe\x881\xec\xf3@\x9a\t8\x8f\x8f\xbb\xf5\xdb\xe1c'
+
+$ export PEAK_SECRET='7`\xde+a\xbcs\xac\xbe\x881\xec\xf3@\x9a\t8\x8f\x8f\xbb\xf5\xdb\xe1c'
+```
+
 You can then use `gunicorn` to start a `peak-web` instance:
 
 ```
