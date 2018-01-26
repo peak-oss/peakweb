@@ -1,6 +1,6 @@
 # This is the Peak front-end.
 
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request
 
 from forms import TestSuiteForm
 
@@ -54,5 +54,6 @@ def get_avg(suite_uuid):
 
 @app.route('/history/', methods=('GET', 'POST'))
 def history():
-
-    return render_template('history.html')
+    page = request.args.get("page") or "1"
+    suites = requests.get(peakorc+'/suites/?page='+page).json()
+    return render_template('history.html',suites=suites)
