@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="250"
-   height="125"
-   viewBox="0 0 249.99998 124.99999"
+   width="200"
+   height="100"
+   viewBox="0 0 199.99998 99.999992"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -27,7 +27,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.0764213"
      inkscape:cx="360.3552"
-     inkscape:cy="237.3066"
+     inkscape:cy="196.89998"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -55,20 +55,20 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-927.36205)">
+     transform="translate(0,-952.36205)">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.97166991;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 47.871759,957.53021 -41.4594768,71.81019 30.6382258,-51.821 -0.378032,-0.0859 31.102623,0 -19.90334,-19.90334 z"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.9286859;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 43.20302,984.05975 -31.66489,51.12475 23.400104,-36.89362 -0.288724,-0.061 23.754788,0 -15.201278,-14.17001 z"
        id="path3340"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.99611139;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 8.1107377,1028.4124 109.6611323,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.94670892;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 12.835334,1034.5238 83.754256,0"
        id="path4222"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.84174299;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 76.477861,986.04856 43.011609,43.01154"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.83287859;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.051078,1004.3632 32.85034,30.6218"
        id="path4224"
        inkscape:connector-curvature="0" />
     <path
@@ -86,23 +86,23 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 358.66072,382.71935 -28.62563,-18.65156 30.46554,-15.46474 z"
-       inkscape:transform-center-x="0.76501726"
-       inkscape:transform-center-y="0.77265624"
-       transform="matrix(0.17843557,0.07423593,-0.00358959,0.14187093,14.6583,908.54951)" />
+       inkscape:transform-center-x="0.58428562"
+       inkscape:transform-center-y="0.55009128"
+       transform="matrix(0.13628109,0.05285174,-0.00274157,0.10100399,17.836069,949.1883)" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:44.85907745px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="122.78564"
-       y="1009.9532"
+       style="font-style:normal;font-weight:normal;font-size:33.07881927px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="96.925957"
+       y="1059.2175"
        id="text4391"
        sodipodi:linespacing="125%"
-       transform="scale(1.0042225,0.99579526)"><tspan
+       transform="scale(1.0401224,0.9614253)"><tspan
          sodipodi:role="line"
-         x="122.78564"
-         y="1009.9532"
+         x="96.925957"
+         y="1059.2175"
          id="tspan4393"><tspan
-           x="122.78564"
-           y="1009.9532"
+           x="96.925957"
+           y="1059.2175"
            id="tspan4395">PEAK</tspan></tspan></text>
   </g>
 </svg>
