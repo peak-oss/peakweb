@@ -51,5 +51,7 @@ def get_data(suite_uuid):
 @app.route('/history/', methods=('GET', 'POST'))
 def history():
     page = request.args.get("page") or "1"
-    suites = requests.get(peakorc+'/suites/?page='+page).json()
-    return render_template('history.html',suites=suites)
+    resp = requests.get(peakorc+'/suites/?page='+page).json()
+    suites = resp['suites']
+    pages = resp['total_pages']
+    return render_template('history.html',suites=suites, pages=pages, page=int(page))

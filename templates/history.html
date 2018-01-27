@@ -4,15 +4,17 @@
 {% block content %}
 <div class="container">
   <nav aria-label="history-pagination">
-    <ul class="pagination float-right">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
+    <ul class="pagination pagination-sm float-right">
+      <li {% if page == 1 %}class="page-item disabled"{% else %}class="page-item"{% endif %}>
+      <a class="page-link" href="/history/?page={{ page - 1 }}" tabindex="">Previous</a>
       </li>
-      <li class="page-item"><a class="page-link" href="/history/?page=1">1</a></li>
-      <li class="page-item"><a class="page-link" href="/history/?page=2">2</a></li>
-      <li class="page-item"><a class="page-link" href="/history/?page=3">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
+      {%- for i in range(pages) %}
+      {%- set pagenum = i+1 %}
+      <li {% if page == pagenum %}class="page-item active"{% else %}class="page-item"{% endif %}>
+      <a  class="page-link" href="/history/?page={{ pagenum}}">{{ pagenum }}</a></li>
+      {%- endfor %}
+      <li {% if page == pages %}class="page-item disabled"{% else %}class="page-item"{% endif %}>
+        <a class="page-link" href="/history?page={{ page + 1 }}">Next</a>
       </li>
     </ul>
   </nav>
