@@ -47,6 +47,10 @@ def get_data(suite_uuid):
     resp = requests.get(peakorc+'/time_data/'+suite_uuid)
     return json.dumps(resp.json())
 
+@app.route('/avg_time/<suite_uuid>', methods=('GET','POST'))
+def get_avg(suite_uuid):
+    resp = requests.get(peakorc+'/avg_time/'+suite_uuid)
+    return json.dumps(resp.json())
 
 @app.route('/history/', methods=('GET', 'POST'))
 def history():
