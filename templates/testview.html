@@ -22,6 +22,10 @@
       }
 
       var chart = c3.generate({ 
+        size: {
+          height: 400,
+          width: 500
+        },
         bindto: "#line_chart_div",
         data: {
           x: 'duration',
@@ -32,12 +36,70 @@
           ],
           type: 'spline'
         },
+        axis: {
+          x: {
+            label: 'seconds',
+            tick: { 
+              fit: true,
+              culling: {
+                max: 5
+              }
+            }
+          }
+        },
         point: {
           show: false
         }
       });
     });
 </script>
+<script type="text/javascript">
+    $.ajax({
+      url: "/avg_time/{{ suite_uuid }}",
+      dataType: "json"
+    }).done(function(jsonData) {
+
+      // create arrays holding the data series
+      var avg = ['avg']
+      var duration = ['duration']
+
+      for (var itr in jsonData) {
+        duration.push(jsonData[itr][0].toFixed(2));
+        avg.push(jsonData[itr][1].toFixed(6));
+      }
+
+      var chart = c3.generate({ 
+        size: {
+          height: 400,
+          width: 500
+        },
+        bindto: "#avg_chart_div",
+        data: {
+          x: 'duration',
+          columns: [
+            duration,
+            avg
+          ],
+          type: 'spline'
+        },
+        axis: {
+          x: {
+            label: 'seconds',
+            tick: { 
+              fit: true,
+              culling: {
+                max: 5
+              }
+            }
+          }
+        },
+        point: {
+          show: false
+        }
+      });
+    });
+</script>
+
 {%- endblock %}
 
 {% block content %}
@@ -59,6 +121,19 @@
     </tr>
   </tbody>
 </table>
-<div id="line_chart_div"></div>
+<div class="row">
+  <div class="col-md-6">
+    <p><strong>Request percentages</strong></p>
+  </div>
+  <div class="col-md-6">
+    <p><strong>Average response time</strong></p>
+  </div>
+</div>
+<div class="row">
+  <div id="line_chart_div">
+  </div>
+  <div class="col-md-1"></div>
+  <div id="avg_chart_div"></div>
+</div>
 
 {%- endblock %}
