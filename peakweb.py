@@ -50,8 +50,13 @@ def get_data(suite_uuid):
 
 @app.route('/history/', methods=('GET', 'POST'))
 def history():
-    page = request.args.get("page") or "1"
-    resp = requests.get(peakorc+'/suites/?page='+page).json()
-    suites = resp['suites']
-    pages = resp['total_pages']
-    return render_template('history.html',suites=suites, pages=pages, page=int(page))
+    try:
+        page = request.args.get("page") or "1"
+        resp = requests.get(peakorc+'/suites/?page='+page).json()
+        suites = resp['suites']
+        pages = resp['total_pages']
+        return render_template('history.html',suites=suites, pages=pages, page=int(page))
+    except ValueError:
+        msg = "Attempted to decode a non-integer value when accessing the 'page' URL parameter.\n\n"\
+              "The value for the 'page' parameter was %s" % page
+        return render_template("500.html", msg = msg), 500
