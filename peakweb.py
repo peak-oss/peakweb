@@ -23,7 +23,7 @@ def test_suite():
     form = TestSuiteForm()
 
     if form.validate_on_submit():
-        resp = requests.post(peakorc+'/test_suite/new',
+        resp = requests.post(peakorc+'/suites/new',
                              headers={'test-url': str(form.url.data),
                                       'nodes': str(form.nodes.data),
                                       'node-requests': str(form.requests_node.data),
@@ -44,12 +44,12 @@ def view_test(suite_uuid):
 
 @app.route('/suite_time_data/<suite_uuid>', methods=('GET','POST'))
 def get_data(suite_uuid):
-    resp = requests.get(peakorc+'/time_data/'+suite_uuid)
+    resp = requests.get(peakorc+'/suites/'+suite_uuid+'/metrics/raw_response_counts')
     return json.dumps(resp.json())
 
 @app.route('/avg_time/<suite_uuid>', methods=('GET','POST'))
 def get_avg(suite_uuid):
-    resp = requests.get(peakorc+'/avg_time/'+suite_uuid)
+    resp = requests.get(peakorc+'/suites/'+suite_uuid+'/metrics/avg_response_times')
     return json.dumps(resp.json())
 
 @app.route('/history/', methods=('GET', 'POST'))
