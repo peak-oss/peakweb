@@ -23,7 +23,7 @@ def test_suite():
     form = TestSuiteForm()
 
     if form.validate_on_submit():
-        resp = requests.post(peakorc+'/suites/new',
+        resp = requests.post(peakorc+'/suites/',
                              headers={'test-url': str(form.url.data),
                                       'nodes': str(form.nodes.data),
                                       'node-requests': str(form.requests_node.data),
