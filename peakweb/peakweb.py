@@ -30,7 +30,8 @@ def test_suite():
                                       'description': str(form.description.data)})
 
         test_id = resp.json()['id']
-        return redirect('/suite_view/'+test_id)
+        flash("Successfully submitted peak suite %s" % test_id)
+        return redirect('/test_suite/')
 
     return render_template('testsuite.html', form=form)
 

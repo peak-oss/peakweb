@@ -43,11 +43,13 @@
     <div class="container">
   {%- with messages = get_flashed_messages(with_categories=True) %}
   {%- if messages %}
+    {%- for message in messages %}
     <div class="row">
-      <div class="col-md-12">
-        <!-- add code here to flash messages -->
-      </div>
+       <div class="col-md-12 alert alert-success" >
+          {{ message[1] }} 
+       </div>
     </div>
+    {%- endfor %}
   {%- endif %}
   {%- endwith %}
 
