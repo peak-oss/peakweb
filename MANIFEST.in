@@ -1,0 +1,2 @@
+recursive-include peakweb/static/*
+recursive-include peakweb/templates/*
