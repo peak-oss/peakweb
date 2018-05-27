@@ -11,15 +11,10 @@
 <html lang="en">
 <head>
  <title>Peak</title>
- <!-- Latest compiled and minified CSS -->
- <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/simplex/bootstrap.min.css"-->
- <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"-->
- <!-- jQuery library -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <!-- Latest compiled JavaScript -->
- <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script--> 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="/static/dashboard.css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
  {% block head %}{% endblock %}
 </head>
 <body>
@@ -30,7 +25,7 @@
             <span class="navbar-toggler-icon"></span>
               </button>
         <a class="navbar-brand" href="#">
-          <object type="image/svg+xml" data="{{ url_for('static', filename='peak-text.svg')}}" class="logo"></object>
+          <img src="{{ url_for('static', filename='peak-text.svg')}}" class="logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
