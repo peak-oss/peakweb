@@ -21,18 +21,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Initiated</th>
+        <th class="w-25">Initiated</th>
         <th>Id</th>
-        <th class="col-md-6">Description</th>
+        <th class="w-50">Description</th>
         <th>Requests</th>
       </tr>
     </thead>
     <tbody>
       {%- for suite in suites %}
       <tr>
-        <td>{{ suite['initiated'][:19] }}</td>
+        <td class="w-25">{{ suite['initiated'][:19] }}</td>
         <td><a href="/suite_view/{{ suite['uuid'] }}">{{ suite['uuid'][:8]}}</a></td>
-        <td>{{ suite['description'] }}</td>
+        <td class="w-50">{{ suite['description'] }}</td>
         <td>{{ suite['requests'] }}</td>
       <tr>
       {%- endfor %}
