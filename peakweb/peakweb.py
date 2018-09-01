@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, flash, redirect, request
 
-from forms import TestSuiteForm
+from peakweb.forms import TestSuiteForm
 
 import requests
 import json
