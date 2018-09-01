@@ -65,3 +65,6 @@ def history():
         msg = "Attempted to decode a non-integer value when accessing the 'page' URL parameter.\n\n"\
               "The value for the 'page' parameter was %s" % page
         return render_template("500.html", msg = msg), 500
+
+if __name__ == '__main__':
+    application.run(host='0.0.0.0', port=8080)
