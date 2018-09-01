@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-from peakweb import run
 
 setup (
     name = 'peakweb',
@@ -9,13 +8,7 @@ setup (
     author='Peak Development Team',
     author_email='dev@peak-oss.tech',
     keywords='peak api testing containers docker',
-    entry_points = {
-        'console_scripts': [
-            'peakweb = peakweb.run:main',
-        ],
-    },
     include_package_data=True,
     packages=find_packages(),
-    install_requires=['flask==0.12.2','flask-wtf','requests',
-                      'subprocess32', 'gunicorn']
+    install_requires=['flask==0.12.2','flask-wtf','requests']
 )
