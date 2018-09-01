@@ -8,17 +8,17 @@ import requests
 import json
 import os
 
-app = Flask(__name__)
-app.secret_key = 'some_secret'
+application = Flask(__name__)
+application.secret_key = 'some_secret'
 peakorc = os.environ['PEAKORC']
 
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/test_suite/', methods=('GET', 'POST'))
+@application.route('/test_suite/', methods=('GET', 'POST'))
 def test_suite():
     form = TestSuiteForm()
 
@@ -35,7 +35,7 @@ def test_suite():
 
     return render_template('testsuite.html', form=form)
 
-@app.route('/suite_view/<suite_uuid>', methods=('GET','POST'))
+@application.route('/suite_view/<suite_uuid>', methods=('GET','POST'))
 def view_test(suite_uuid):
     resp = requests.get(peakorc+'/suites/'+suite_uuid)
     num_requests = resp.json()['requests']
@@ -43,17 +43,17 @@ def view_test(suite_uuid):
                            requests=num_requests)
 
 
-@app.route('/suite_time_data/<suite_uuid>', methods=('GET','POST'))
+@application.route('/suite_time_data/<suite_uuid>', methods=('GET','POST'))
 def get_data(suite_uuid):
     resp = requests.get(peakorc+'/suites/'+suite_uuid+'/metrics/raw_response_counts')
     return json.dumps(resp.json())
 
-@app.route('/avg_time/<suite_uuid>', methods=('GET','POST'))
+@application.route('/avg_time/<suite_uuid>', methods=('GET','POST'))
 def get_avg(suite_uuid):
     resp = requests.get(peakorc+'/suites/'+suite_uuid+'/metrics/avg_response_times')
     return json.dumps(resp.json())
 
-@app.route('/history/', methods=('GET', 'POST'))
+@application.route('/history/', methods=('GET', 'POST'))
 def history():
     try:
         page = request.args.get("page") or "1"
