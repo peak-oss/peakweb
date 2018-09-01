@@ -9,6 +9,5 @@ setup (
     author_email='dev@peak-oss.tech',
     keywords='peak api testing containers docker',
     include_package_data=True,
-    packages=find_packages(),
-    install_requires=['flask==0.12.2','flask-wtf','requests']
+    packages=find_packages()
 )
