@@ -31,7 +31,7 @@
       {%- for suite in suites %}
       <tr>
         <td class="w-25">{{ suite['initiated'][:19] }}</td>
-        <td><a href="/suite_view/{{ suite['uuid'] }}">{{ suite['uuid'][:8]}}</a></td>
+        <td>{{ suite['uuid'][:8]}}</td>
         <td class="w-50">{{ suite['description'] }}</td>
         <td>{{ suite['requests'] }}</td>
       <tr>
