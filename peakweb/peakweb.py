@@ -9,7 +9,7 @@ import json
 import os
 
 application = Flask(__name__)
-application.secret_key = 'some_secret'
+application.secret_key = os.environ['FLASK_SECRET']
 peakorc = os.environ['PEAKORC']
 
 
