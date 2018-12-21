@@ -30,7 +30,7 @@ def stop_suite():
     test_uuid = request.args.get("uuid")
     requests.post(peakorc+'/suites/'+str(test_uuid)+'/stop')
     flash("Successfully stopped peak suite %s" % test_uuid)
-    return redirect('/test_suite/')
+    return redirect('/history/')
 
 
 @application.route('/test_suite/', methods=('GET', 'POST'))
