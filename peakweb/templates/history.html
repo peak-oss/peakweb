@@ -25,7 +25,7 @@
         <th>Id</th>
         <th class="w-50">Description</th>
         <th>Requests</th>
-        <th>Stop</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +35,7 @@
         <td>{{ suite['uuid'][:8]}}</td>
         <td class="w-50">{{ suite['description'] }}</td>
         <td>{{ suite['requests'] }}</td>
-        <td>
+        <td class="text-center">
           <a href="/stop_suite?uuid={{ suite['uuid'] }}">
             <span class="fa fa-stop-circle"></span>
           </a>
