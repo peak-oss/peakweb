@@ -25,6 +25,13 @@ def healthz():
 def index():
     return render_template('index.html')
 
+@application.route('/stop_suite', methods=('GET','POST'))
+def stop_suite():
+    test_uuid = request.args.get("uuid")
+    requests.post(peakorc+'/suites/'+str(test_uuid)+'/stop')
+    flash("Successfully stopped peak suite %s" % test_uuid)
+    return redirect('/test_suite/')
+
 
 @application.route('/test_suite/', methods=('GET', 'POST'))
 def test_suite():
